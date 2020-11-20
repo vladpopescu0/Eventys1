@@ -41,5 +41,18 @@
         app:layout_constraintHorizontal_bias="0.908"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/profile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:shadowColor="#00711414"
+        android:background="@drawable/ic_profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.082" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
@@ -29,7 +30,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    Button logout;
+    Button logout,createEvent;
     private int ACCESS_LOCATION_REQUEST_CODE = 10001;
     FusedLocationProviderClient fusedLocationProviderClient;
 
@@ -43,6 +44,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mapFragment.getMapAsync(this::onMapReady);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         logout=(Button)findViewById(R.id.refresh);
+        createEvent=(Button)findViewById(R.id.createEvent);
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +54,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 finish();
             }
         });
-
+        createEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),AddEvent.class));
+                finish();
+            }
+        });
 
     }
     @Override

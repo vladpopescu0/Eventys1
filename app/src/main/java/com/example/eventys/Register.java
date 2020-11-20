@@ -91,7 +91,9 @@ public class Register extends AppCompatActivity {
                                User user = new User(
                                        fullName,
                                        email,
-                                       userID
+                                       userID,
+                                       "",
+                                       ""
                                );
                                documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                    @Override

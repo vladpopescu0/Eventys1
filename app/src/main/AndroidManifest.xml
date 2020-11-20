@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Eventys">
-        <activity android:name=".AddEvent"></activity>
+        <activity android:name=".AddEventInfo"></activity>
+        <activity android:name=".AddEvent" />
         <activity android:name=".Login" />
         <activity android:name=".Register">
             <intent-filter>
@@ -40,7 +41,7 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
     </application>
 
 </manifest>

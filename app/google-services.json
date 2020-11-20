@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "208822680800",
+    "firebase_url": "https://eventys.firebaseio.com",
+    "project_id": "eventys",
+    "storage_bucket": "eventys.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208822680800:android:c24d990173da06f7fee485",
+        "android_client_info": {
+          "package_name": "com.example.eventys"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "208822680800-crs3mbjbi7r0ef7u8cggvebdvbtf36dp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.eventys",
+            "certificate_hash": "a85bc16caf222314907a8019bcfce3f2bac351ba"
+          }
+        },
+        {
+          "client_id": "208822680800-sm8i7slbnu6t4i77lek5db2rd965v0ue.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy8-onjqzAw3C4Exudzf9NIlU5refTml8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "208822680800-sm8i7slbnu6t4i77lek5db2rd965v0ue.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

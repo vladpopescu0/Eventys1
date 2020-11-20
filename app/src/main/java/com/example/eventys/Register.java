@@ -92,7 +92,6 @@ public class Register extends AppCompatActivity {
                                        fullName,
                                        email,
                                        userID,
-                                       "",
                                        ""
                                );
                                documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -108,7 +107,7 @@ public class Register extends AppCompatActivity {
                                });
                                startActivity(new Intent(getApplicationContext(),MapsActivity.class));
                            }else{
-                                Toast.makeText(Register.this,"Error, try again!",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Register.this,"Error, try again!" ,Toast.LENGTH_SHORT).show();
                                 progressBar.setVisibility(View.GONE);
                            }
                     }

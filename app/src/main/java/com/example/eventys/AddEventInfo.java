@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -17,8 +18,16 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.sql.Time;
@@ -27,6 +36,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AddEventInfo extends AppCompatActivity {
 
@@ -60,6 +71,7 @@ public class AddEventInfo extends AppCompatActivity {
         mNrParticipants=(EditText)findViewById(R.id.numberOfPart);
         mDescription=(EditText)findViewById(R.id.description);
         eventIcon=(Spinner) findViewById(R.id.eventIcon);
+        sendEvent=findViewById(R.id.done);
 
         userID=fAuth.getCurrentUser().getUid();
 
@@ -162,13 +174,50 @@ public class AddEventInfo extends AppCompatActivity {
                 String description = mDescription.getText().toString();
                 String xlongstring = String.valueOf(xlong);
                 String ylatstring = String.valueOf(ylat);
+                String nrParticipants = mNrParticipants.getText().toString().trim();
+
                 if(TextUtils.isEmpty(eventName)){
                     mEventName.setError("Name is Required!");
                     return;
                 }
                 if(TextUtils.isEmpty(description)){
                     mDescription.setError("Description is Required");
+                    return;
                 }
+                if(TextUtils.isEmpty(nrParticipants)){
+                    mNrParticipants.setError("Number of Participants is Required");
+                    return;
+                }
+                if(description.length() > 60){
+                    mDescription.setError("Description is too long");
+                    return;
+                }
+                CollectionReference dbEvents = fStore.collection("events");
+                Event event = new Event(
+                        eventName,
+                        description,
+                        nrParticipants,
+                        timestring,
+                        datestring,
+                        xlong,
+                        ylat,
+                        userID,
+                        icon
+                );
+                dbEvents.add(event).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+
+                        Toast.makeText(AddEventInfo.this,"Event Added",Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(getApplicationContext(),MapsActivity.class));
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(AddEventInfo.this,e.getMessage(),Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         });
     }

@@ -52,5 +52,5 @@ public class Event {
 
     public String getCreator(){ return creator;}
 
-    public String getColor(){return icon; }
+    public String getIcon(){return icon; }
 }

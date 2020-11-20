@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Eventys">
-        <activity android:name=".AddEventInfo"></activity>
+        <activity android:name=".MarkerDetails"></activity>
+        <activity android:name=".AddEventInfo" />
         <activity android:name=".AddEvent" />
         <activity android:name=".Login" />
         <activity android:name=".Register">

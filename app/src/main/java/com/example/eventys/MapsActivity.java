@@ -58,7 +58,7 @@ import java.util.Date;
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
     public static final String TAG = "TAG";
     private GoogleMap mMap;
-    Button addEventBtn,eventInfo;
+    Button addEventBtn,eventInfo,profile;
     FirebaseFirestore fStore;
     FirebaseAuth fAuth;
     private int ACCESS_LOCATION_REQUEST_CODE = 10001;
@@ -82,11 +82,19 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         addEventBtn=(Button) findViewById(R.id.createEvent);
         eventInfo=(Button)findViewById(R.id.info);
+        profile=(Button)findViewById(R.id.profile);
 
         addEventBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openAddEvent();
+            }
+        });
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MapsActivity.this,UserProfile.class);
+                startActivity(i);
             }
         });
     }
@@ -175,15 +183,19 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                                 String mDescription = event.getDescription();
                                                 String mTime = event.getTime();
                                                 String mDate = event.getDate();
+                                                String eID = document.getId();
                                                 String mParticipants = event.getNrParticipants();
                                                 String mIcon = event.getIcon();
                                                 Intent i = new Intent(MapsActivity.this,MarkerDetails.class);
                                                 i.putExtra("TITLE",mTitle);
+                                                i.putExtra("EVENTID",eID);
                                                 i.putExtra("ICON",mIcon);
                                                 i.putExtra("DESCRIPTION",mDescription);
                                                 i.putExtra("TIME",mTime);
                                                 i.putExtra("PARTICIPANTS",mParticipants);
                                                 i.putExtra("DATE",mDate);
+                                                i.putExtra("XLONG",event.getXlong());
+                                                i.putExtra("YLAT",event.getYlat());
                                                 Log.d(TAG,"TEST 1 => "+mTime+mDate);
                                                 eventInfo.setVisibility(View.GONE);
                                                 startActivity(i);

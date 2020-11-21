@@ -199,7 +199,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     }
                                 }else {
                                     if (timestampevent >= timeStamp) {
-                                        if ((yEvent - yCurrent) * (yEvent - yCurrent) + (xEvent - xCurrent) * (xEvent - xCurrent) < 0.22) {
+                                        if ((yEvent - yCurrent) * (yEvent - yCurrent) + (xEvent - xCurrent) * (xEvent - xCurrent) < 0.322) {
                                             if (event.icon.equals("Sport")) {
                                                 mMap.addMarker(new MarkerOptions()
                                                         .position(sydney)

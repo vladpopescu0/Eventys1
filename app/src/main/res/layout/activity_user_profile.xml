@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".UserProfile">
+    tools:context=".UserProfile"
+    android:background="@drawable/f0b9523dacbecc5bd4e2aae496a9c8c2">
 
     <ScrollView
         android:layout_width="match_parent"

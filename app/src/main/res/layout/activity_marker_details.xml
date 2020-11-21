@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MarkerDetails"
-    android:background="#E0E2E4">
+    android:background="@drawable/f0b9523dacbecc5bd4e2aae496a9c8c2">
 
 
     <TextView

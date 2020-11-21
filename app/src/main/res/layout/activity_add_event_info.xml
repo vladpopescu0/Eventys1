@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/emerald_background"
+    android:background="@drawable/f0b9523dacbecc5bd4e2aae496a9c8c2"
     tools:context=".AddEventInfo">
 
     <ScrollView
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:background="#E0E2E4"
+        android:background="@drawable/f0b9523dacbecc5bd4e2aae496a9c8c2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,6 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#00292424"
+                android:fontFamily="@font/baloo"
                 android:gravity="center"
                 android:text="Select Info for Event"
                 android:textColor="#B9ACACCF"
@@ -35,7 +36,7 @@
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"   android:fontFamily="@font/baloo"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/eventName"
@@ -44,12 +45,13 @@
                 android:layout_marginTop="30dp"
                 android:background="#668299"
                 android:ems="10"
+                android:fontFamily="@font/baloo"
                 android:hint="Event Name"
                 android:inputType="textPersonName"
                 android:padding="10dp"
                 android:textColor="#B937374E"
                 android:textColorHint="#B937374E"
-                android:textSize="30dp"   android:fontFamily="@font/baloo"/>
+                android:textSize="30dp" />
 
             <Spinner
                 android:id="@+id/eventIcon"
@@ -58,11 +60,12 @@
                 android:layout_marginTop="30dp"
                 android:background="#668299"
                 android:entries="@array/icons"
+                android:fontFamily="@font/baloo"
                 android:padding="10dp"
                 android:popupBackground="#668299"
                 android:textColor="#B9ACACCF"
                 android:textColorHint="#B9ACACCF"
-                android:textSize="30dp"   android:fontFamily="@font/baloo"/>
+                android:textSize="30dp" />
 
             <TextView
                 android:id="@+id/textView9"
@@ -70,17 +73,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="#668299"
+                android:fontFamily="@font/baloo"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="Pick The Date"
                 android:textColor="#B937374E"
-                android:textSize="30dp"   android:fontFamily="@font/baloo"/>
+                android:textSize="30dp" />
 
             <CalendarView
                 android:id="@+id/calendar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#668299"   android:fontFamily="@font/baloo"/>
+                android:background="#668299"
+                android:fontFamily="@font/baloo" />
 
             <Button
                 android:id="@+id/time"
@@ -88,11 +93,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="#668299"
+                android:fontFamily="@font/baloo"
                 android:text="Pick The Time"
                 android:textAllCaps="false"
                 android:textColor="#B937374E"
                 android:textSize="30sp"
-                app:backgroundTint="#668299"   android:fontFamily="@font/baloo"/>
+                app:backgroundTint="#668299" />
 
             <EditText
                 android:id="@+id/numberOfPart"
@@ -101,12 +107,13 @@
                 android:layout_marginTop="30dp"
                 android:background="#668299"
                 android:ems="10"
+                android:fontFamily="@font/baloo"
                 android:hint="Max Number of Participants"
                 android:inputType="number"
                 android:padding="10dp"
                 android:textColor="#B937374E"
                 android:textColorHint="#B937374E"
-                android:textSize="30sp"   android:fontFamily="@font/baloo"/>
+                android:textSize="30sp" />
 
             <EditText
                 android:id="@+id/description"
@@ -115,6 +122,7 @@
                 android:layout_marginTop="30dp"
                 android:background="#668299"
                 android:ems="10"
+                android:fontFamily="@font/baloo"
                 android:gravity="start|top"
                 android:hint="Extra Info"
                 android:inputType="textMultiLine"
@@ -122,7 +130,7 @@
                 android:textColor="#B937374E"
                 android:textColorHint="#B937374E"
                 android:textSize="30dp"
-                app:backgroundTint="#668299"   android:fontFamily="@font/baloo"/>
+                app:backgroundTint="#668299" />
 
             <Button
                 android:id="@+id/done"
@@ -130,11 +138,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="#000000"
+                android:fontFamily="@font/baloo"
                 android:text="DONE"
                 android:textAllCaps="false"
                 android:textColor="#B99595EC"
                 android:textSize="30sp"
-                app:backgroundTint="#6625E6FF"   android:fontFamily="@font/baloo"/>
+                app:backgroundTint="#6625E6FF" />
 
         </LinearLayout>
     </ScrollView>

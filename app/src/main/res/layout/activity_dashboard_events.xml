@@ -28,43 +28,17 @@
                 android:layout_height="wrap_content"
                 android:background="#00292424"
                 android:gravity="center"
-                android:text="Select Info for Event"
+                android:text="Your Event"
                 android:textColor="#B9ACACCF"
                 android:textColorHint="#B9ACACCF"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                android:fontFamily="@font/baloo"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/eventName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:background="#668299"
-                android:ems="10"
-                android:hint="Event Name"
-                android:inputType="textPersonName"
-                android:padding="10dp"
-                android:textColor="#B937374E"
-                android:textColorHint="#B937374E"
-                android:textSize="30dp" />
-
-            <Spinner
-                android:id="@+id/eventIcon"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:background="#668299"
-                android:entries="@array/icons"
-                android:padding="10dp"
-                android:popupBackground="#668299"
-                android:textColor="#B9ACACCF"
-                android:textColorHint="#B9ACACCF"
-                android:textSize="30dp" />
-
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -73,49 +47,73 @@
                 android:padding="10dp"
                 android:text="Pick The Date"
                 android:textColor="#B937374E"
+                android:fontFamily="@font/baloo"
                 android:textSize="30dp" />
 
-            <Button
+            <TextView
+                android:id="@+id/type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="#668299"
+                android:gravity="center"
+                android:maxLines="4"
+                android:padding="10dp"
+                android:text="Pick The Date"
+                android:textColor="#B937374E"
+                android:fontFamily="@font/baloo"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="#668299"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Pick The Date"
+                android:textColor="#B937374E"
+                android:fontFamily="@font/baloo"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/nrParticipants"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="#668299"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Pick The Date"
+                android:fontFamily="@font/baloo"
+                android:textColor="#B937374E"
+                android:textSize="30dp" />
+
+            <TextView
                 android:id="@+id/time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="#668299"
-                android:text="Pick The Time"
-                android:textAllCaps="false"
-                android:textColor="#B937374E"
-                android:textSize="30sp"
-                app:backgroundTint="#668299" />
-
-            <EditText
-                android:id="@+id/numberOfPart"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:background="#668299"
-                android:ems="10"
-                android:hint="Max Number of Participants"
-                android:inputType="number"
+                android:gravity="center"
                 android:padding="10dp"
+                android:text="Pick The Date"
                 android:textColor="#B937374E"
-                android:textColorHint="#B937374E"
-                android:textSize="30sp" />
+                android:fontFamily="@font/baloo"
+                android:textSize="30dp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="#668299"
-                android:ems="10"
-                android:gravity="start|top"
-                android:hint="Extra Info"
-                android:inputType="textMultiLine"
                 android:padding="10dp"
+                android:text="Pick The Date"
                 android:textColor="#B937374E"
-                android:textColorHint="#B937374E"
-                android:textSize="30dp"
-                app:backgroundTint="#668299" />
+                android:fontFamily="@font/baloo"
+                android:textSize="30dp" />
 
             <Button
                 android:id="@+id/done"
@@ -124,6 +122,7 @@
                 android:layout_marginTop="30dp"
                 android:background="#000000"
                 android:text="DONE"
+                android:fontFamily="@font/baloo"
                 android:textAllCaps="false"
                 android:textColor="#B99595EC"
                 android:textSize="30sp"

@@ -20,10 +20,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class UserProfile extends AppCompatActivity {
     public static final String TAG="TAG";
-    TextView fullName,userEmail,logout;
+    TextView fullName,logout;
     FirebaseFirestore fStore;
     FirebaseAuth fAuth;
-    Button dashboardBtn;
+    Button dashboardBtn,goToMap;
     String userID;
 
 @Override
@@ -32,9 +32,9 @@ public class UserProfile extends AppCompatActivity {
     setContentView(R.layout.activity_user_profile);
 
     fullName = (TextView) findViewById(R.id.fullName);
-    userEmail = (TextView) findViewById(R.id.userEmail);
     fStore = FirebaseFirestore.getInstance();
     fAuth = FirebaseAuth.getInstance();
+    goToMap=findViewById(R.id.button);
     logout = (TextView) findViewById(R.id.logout);
     dashboardBtn=findViewById(R.id.dashboard);
 
@@ -59,6 +59,13 @@ public class UserProfile extends AppCompatActivity {
         public void onClick(View view) {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(getApplicationContext(), Login.class));
+            finish();
+        }
+    });
+    goToMap.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            startActivity(new Intent(getApplicationContext(), MapsActivity.class));
             finish();
         }
     });

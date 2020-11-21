@@ -99,12 +99,13 @@
         android:layout_width="wrap_content"
         android:layout_height="55dp"
         android:layout_marginBottom="36dp"
+        android:fontFamily="@font/baloo"
         android:isScrollContainer="false"
         android:shadowColor="#00FFFFFF"
         android:text="back"
         android:textColor="#B9ACACCF"
         android:textColorHint="#B9ACACCF"
-        app:backgroundTint="#00000000"
+        app:backgroundTint="#668299"
         app:icon="@drawable/abc_vector_test"
         app:iconTint="#B9ACACCF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -112,17 +113,18 @@
         app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.025"   android:fontFamily="@font/baloo"/>
+        app:layout_constraintVertical_bias="0.025" />
 
     <Button
         android:id="@+id/join"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/baloo"
         android:text="join"
         android:textColor="#B9ACACCF"
         android:textColorHint="#B9ACACCF"
         android:textSize="24sp"
-        app:backgroundTint="#00DD1D1D"
+        app:backgroundTint="#10F5FF"
         app:icon="@android:drawable/ic_input_add"
         app:iconTint="#B9ACACCF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -130,7 +132,7 @@
         app:layout_constraintHorizontal_bias="0.944"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/info"
-        app:layout_constraintVertical_bias="0.208"   android:fontFamily="@font/baloo"/>
+        app:layout_constraintVertical_bias="0.208" />
 
     <TextView
         android:id="@+id/extraText"

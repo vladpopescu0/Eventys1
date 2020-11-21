@@ -21,44 +21,49 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/fullName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView"
-                android:id="@+id/fullName"
                 android:layout_marginTop="30dp"
-                android:textSize="30sp"/>
+                android:fontFamily="@font/baloo"
+                android:text="TextView"
+                android:textSize="30sp" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/userEmail"
                 android:text="TextView"
-                android:textSize="30sp"/>
-
+                android:textSize="30sp"  android:fontFamily="@font/baloo"/>
             <Button
-                android:id="@+id/calendar_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/calendar_button"
                 android:layout_marginTop="20dp"
-                android:text="Upcoming Events Near You" />
+                android:text="Upcoming Events"  android:fontFamily="@font/baloo"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/dashboard"
                 android:text="Dashboard"
-                android:layout_marginTop="20dp"/>
-
+                android:layout_marginTop="20dp"  android:fontFamily="@font/baloo"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/history"
+                android:text="History"
+                android:layout_marginTop="20dp"  android:fontFamily="@font/baloo"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/help"
                 android:text="Help"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"  android:fontFamily="@font/baloo"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/settings"
                 android:text="Settings"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"  android:fontFamily="@font/baloo"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

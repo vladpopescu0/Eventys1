@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CF5858"
+    android:background="@drawable/emerald_background"
     tools:context=".AddEventInfo">
 
     <ScrollView
@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:background="#E0E2E4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,13 +42,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:background="#63DD1D1D"
+                android:background="#668299"
                 android:ems="10"
                 android:hint="Event Name"
                 android:inputType="textPersonName"
                 android:padding="10dp"
-                android:textColor="#B9ACACCF"
-                android:textColorHint="#B9ACACCF"
+                android:textColor="#B937374E"
+                android:textColorHint="#B937374E"
                 android:textSize="30dp" />
 
             <Spinner
@@ -55,50 +56,56 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:background="#668299"
                 android:entries="@array/icons"
-                android:background="#57F31212"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:popupBackground="#668299"
+                android:textColor="#B9ACACCF"
+                android:textColorHint="#B9ACACCF"
+                android:textSize="30dp" />
 
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:background="#63DD1D1D"
+                android:background="#668299"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="Pick The Date"
-                android:textColor="#B9ACACCF"
+                android:textColor="#B937374E"
                 android:textSize="30dp" />
 
             <CalendarView
                 android:id="@+id/calendar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="#668299" />
 
             <Button
                 android:id="@+id/time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:background="#2F11A6"
+                android:background="#668299"
                 android:text="Pick The Time"
                 android:textAllCaps="false"
-                android:textColor="#B9ACACCF"
+                android:textColor="#B937374E"
                 android:textSize="30sp"
-                app:backgroundTint="#66FFD541" />
+                app:backgroundTint="#668299" />
 
             <EditText
                 android:id="@+id/numberOfPart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:background="#00292424"
+                android:background="#668299"
                 android:ems="10"
                 android:hint="Max Number of Participants"
                 android:inputType="number"
                 android:padding="10dp"
-                android:textColor="#B9ACACCF"
+                android:textColor="#B937374E"
+                android:textColorHint="#B937374E"
                 android:textSize="30sp" />
 
             <EditText
@@ -106,15 +113,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:background="#F10202"
+                android:background="#668299"
                 android:ems="10"
                 android:gravity="start|top"
                 android:hint="Extra Info"
                 android:inputType="textMultiLine"
                 android:padding="10dp"
-                android:textColor="#B9ACACCF"
+                android:textColor="#B937374E"
+                android:textColorHint="#B937374E"
                 android:textSize="30dp"
-                app:backgroundTint="#63FF9C9C" />
+                app:backgroundTint="#668299" />
 
             <Button
                 android:id="@+id/done"
@@ -124,9 +132,9 @@
                 android:background="#000000"
                 android:text="DONE"
                 android:textAllCaps="false"
-                android:textColor="#B9ACACCF"
+                android:textColor="#B99595EC"
                 android:textSize="30sp"
-                app:backgroundTint="#66FFCF25" />
+                app:backgroundTint="#6625E6FF" />
 
         </LinearLayout>
     </ScrollView>

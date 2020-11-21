@@ -165,6 +165,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             public boolean onMarkerClick(Marker marker) {
                 String title = marker.getTitle();
                 marker.showInfoWindow();
+
                 fStore.collection("events")
                         .get()
                         .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -178,6 +179,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                         Log.d(TAG,"TEST 0 => " + event.getName1() +" si "+ title);
                                         if(title.equals(event.getName1())){
                                             eventInfo.setVisibility(View.VISIBLE);
+                                            LatLng zoomare = new LatLng(event.ylat , event.xlong);
+                                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(zoomare, 15));
                                             eventInfo.setOnClickListener((View view) -> {
                                                 String mTitle = event.getName1();
                                                 String mDescription = event.getDescription();

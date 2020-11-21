@@ -75,12 +75,6 @@
                 android:textColor="#B937374E"
                 android:textSize="30dp" />
 
-            <CalendarView
-                android:id="@+id/calendar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#668299" />
-
             <Button
                 android:id="@+id/time"
                 android:layout_width="match_parent"

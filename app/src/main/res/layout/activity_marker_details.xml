@@ -65,8 +65,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="#668299"
-        android:lines="4"
-        android:maxLines="4"
+        android:lines="1"
+        android:maxLines="3"
         android:padding="10dp"
         android:text="DEFAULT"
         android:textColor="#B9ACACCF"
@@ -139,11 +139,14 @@
         android:layout_marginStart="88dp"
         android:layout_marginBottom="41dp"
         android:background="#668299"
+        android:fontFamily="@font/baloo"
         android:text=""
+        android:textColor="#B9ACACCF"
+        android:textColorHint="#B9ACACCF"
         app:layout_constraintBottom_toTopOf="@+id/title_marker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.288"
         app:layout_constraintStart_toEndOf="@+id/back"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"   android:fontFamily="@font/baloo"/>
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

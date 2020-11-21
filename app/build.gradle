@@ -7,15 +7,6 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
-    signingConfigs {
-        debug {
-            storeFile file("F:/Eventys/ceva.jks")
-            storePassword "123456"
-            keyAlias "key0"
-            keyPassword "123456"
-        }
-    }
-
     defaultConfig {
         applicationId "com.example.eventys"
         minSdkVersion 17

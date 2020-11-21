@@ -188,7 +188,7 @@ public class AddEventInfo extends AppCompatActivity {
                     mNrParticipants.setError("Number of Participants is Required");
                     return;
                 }
-                if(description.length() > 60){
+                if(description.length() > 120){
                     mDescription.setError("Description is too long");
                     return;
                 }

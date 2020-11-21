@@ -146,52 +146,105 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 }
                                 long timeStamp = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis());
                                 Log.d(TAG,"timestamp acuma + timestamp event => "+timeStamp+" "+timestampevent);
-                                if (timestampevent >= timeStamp) {
-                                    if ((yEvent - yCurrent) * (yEvent - yCurrent) + (xEvent - xCurrent) * (xEvent - xCurrent) < 0.12) {
-                                        if (event.icon.equals("Sport")) {
-                                            mMap.addMarker(new MarkerOptions()
-                                                    .position(sydney)
-                                                    .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_sports_basketball_24)));
-                                        }
-                                        if (event.icon.equals("Movie")) {
-                                            mMap.addMarker(new MarkerOptions()
-                                                    .position(sydney)
-                                                    .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_local_movies_24)));
-                                        }
-                                        if (event.icon.equals("Party")) {
-                                            mMap.addMarker(new MarkerOptions()
-                                                    .position(sydney)
-                                                    .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_emoji_people_24)));
-                                        }
-                                        if (event.icon.equals("Picnic")) {
-                                            mMap.addMarker(new MarkerOptions()
-                                                    .position(sydney)
-                                                    .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_shopping_basket_24)));
-                                        }
-                                        if (event.icon.equals("Food")) {
-                                            mMap.addMarker(new MarkerOptions()
-                                                    .position(sydney)
-                                                    .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_fastfood_24)));
-                                        }
-                                        if (event.icon.equals("Contest")) {
-                                            mMap.addMarker(new MarkerOptions()
-                                                    .position(sydney)
-                                                    .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_create_24)));
-                                        }
-                                        if (event.icon.equals("Fair")) {
-                                            mMap.addMarker(new MarkerOptions()
-                                                    .position(sydney)
-                                                    .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_home_work_24)));
-                                        }
-                                        if (event.icon.equals("Others")) {
-                                            mMap.addMarker(new MarkerOptions()
-                                                    .position(sydney)
-                                                    .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_dynamic_feed_24)));
-                                        }
-                                        if (event.icon.equals("Circus")) {
-                                            mMap.addMarker(new MarkerOptions()
-                                                    .position(sydney)
-                                                    .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_sports_kabaddi_24)));
+                                Log.d(TAG,"allparticipants: "+event.allParticipants);
+                                userID = fAuth.getCurrentUser().getUid();
+                                int isParticipant = event.allParticipants.indexOf(userID);
+                                if(isParticipant!=-1){
+                                    if (timestampevent >= timeStamp) {
+                                            if (event.icon.equals("Sport")) {
+                                                mMap.addMarker(new MarkerOptions()
+                                                        .position(sydney)
+                                                        .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_sports_basketball_24_1)));
+                                            }
+                                            if (event.icon.equals("Movie")) {
+                                                mMap.addMarker(new MarkerOptions()
+                                                        .position(sydney)
+                                                        .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_local_movies_24_1)));
+                                            }
+                                            if (event.icon.equals("Party")) {
+                                                mMap.addMarker(new MarkerOptions()
+                                                        .position(sydney)
+                                                        .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_emoji_people_24_1)));
+                                            }
+                                            if (event.icon.equals("Picnic")) {
+                                                mMap.addMarker(new MarkerOptions()
+                                                        .position(sydney)
+                                                        .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_shopping_basket_24_1)));
+                                            }
+                                            if (event.icon.equals("Food")) {
+                                                mMap.addMarker(new MarkerOptions()
+                                                        .position(sydney)
+                                                        .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_fastfood_24_1)));
+                                            }
+                                            if (event.icon.equals("Contest")) {
+                                                mMap.addMarker(new MarkerOptions()
+                                                        .position(sydney)
+                                                        .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_create_24_1)));
+                                            }
+                                            if (event.icon.equals("Fair")) {
+                                                mMap.addMarker(new MarkerOptions()
+                                                        .position(sydney)
+                                                        .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_home_work_24_1)));
+                                            }
+                                            if (event.icon.equals("Others")) {
+                                                mMap.addMarker(new MarkerOptions()
+                                                        .position(sydney)
+                                                        .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_dynamic_feed_24_1)));
+                                            }
+                                            if (event.icon.equals("Circus")) {
+                                                mMap.addMarker(new MarkerOptions()
+                                                        .position(sydney)
+                                                        .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_sports_kabaddi_24_1)));
+                                            }
+                                    }
+                                }else {
+                                    if (timestampevent >= timeStamp) {
+                                        if ((yEvent - yCurrent) * (yEvent - yCurrent) + (xEvent - xCurrent) * (xEvent - xCurrent) < 0.22) {
+                                            if (event.icon.equals("Sport")) {
+                                                mMap.addMarker(new MarkerOptions()
+                                                        .position(sydney)
+                                                        .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_sports_basketball_24)));
+                                            }
+                                            if (event.icon.equals("Movie")) {
+                                                mMap.addMarker(new MarkerOptions()
+                                                        .position(sydney)
+                                                        .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_local_movies_24)));
+                                            }
+                                            if (event.icon.equals("Party")) {
+                                                mMap.addMarker(new MarkerOptions()
+                                                        .position(sydney)
+                                                        .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_emoji_people_24)));
+                                            }
+                                            if (event.icon.equals("Picnic")) {
+                                                mMap.addMarker(new MarkerOptions()
+                                                        .position(sydney)
+                                                        .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_shopping_basket_24)));
+                                            }
+                                            if (event.icon.equals("Food")) {
+                                                mMap.addMarker(new MarkerOptions()
+                                                        .position(sydney)
+                                                        .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_fastfood_24)));
+                                            }
+                                            if (event.icon.equals("Contest")) {
+                                                mMap.addMarker(new MarkerOptions()
+                                                        .position(sydney)
+                                                        .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_create_24)));
+                                            }
+                                            if (event.icon.equals("Fair")) {
+                                                mMap.addMarker(new MarkerOptions()
+                                                        .position(sydney)
+                                                        .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_home_work_24)));
+                                            }
+                                            if (event.icon.equals("Others")) {
+                                                mMap.addMarker(new MarkerOptions()
+                                                        .position(sydney)
+                                                        .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_dynamic_feed_24)));
+                                            }
+                                            if (event.icon.equals("Circus")) {
+                                                mMap.addMarker(new MarkerOptions()
+                                                        .position(sydney)
+                                                        .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_sports_kabaddi_24)));
+                                            }
                                         }
                                     }
                                 }

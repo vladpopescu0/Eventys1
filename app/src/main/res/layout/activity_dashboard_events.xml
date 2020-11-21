@@ -6,17 +6,135 @@
     android:layout_height="match_parent"
     tools:context=".DashboardEvents">
 
-    <TextView
-        android:id="@+id/eventName"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="91dp"
-        android:layout_marginEnd="191dp"
-        android:layout_marginBottom="621dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="4dp"
+        android:background="#E0E2E4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00292424"
+                android:gravity="center"
+                android:text="Select Info for Event"
+                android:textColor="#B9ACACCF"
+                android:textColorHint="#B9ACACCF"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/eventName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="#668299"
+                android:ems="10"
+                android:hint="Event Name"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="#B937374E"
+                android:textColorHint="#B937374E"
+                android:textSize="30dp" />
+
+            <Spinner
+                android:id="@+id/eventIcon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="#668299"
+                android:entries="@array/icons"
+                android:padding="10dp"
+                android:popupBackground="#668299"
+                android:textColor="#B9ACACCF"
+                android:textColorHint="#B9ACACCF"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="#668299"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Pick The Date"
+                android:textColor="#B937374E"
+                android:textSize="30dp" />
+
+            <CalendarView
+                android:id="@+id/calendar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#668299" />
+
+            <Button
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="#668299"
+                android:text="Pick The Time"
+                android:textAllCaps="false"
+                android:textColor="#B937374E"
+                android:textSize="30sp"
+                app:backgroundTint="#668299" />
+
+            <EditText
+                android:id="@+id/numberOfPart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="#668299"
+                android:ems="10"
+                android:hint="Max Number of Participants"
+                android:inputType="number"
+                android:padding="10dp"
+                android:textColor="#B937374E"
+                android:textColorHint="#B937374E"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="#668299"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="Extra Info"
+                android:inputType="textMultiLine"
+                android:padding="10dp"
+                android:textColor="#B937374E"
+                android:textColorHint="#B937374E"
+                android:textSize="30dp"
+                app:backgroundTint="#668299" />
+
+            <Button
+                android:id="@+id/done"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="#000000"
+                android:text="DONE"
+                android:textAllCaps="false"
+                android:textColor="#B99595EC"
+                android:textSize="30sp"
+                app:backgroundTint="#6625E6FF" />
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

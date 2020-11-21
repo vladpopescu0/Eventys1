@@ -6,4 +6,143 @@
     android:layout_height="match_parent"
     tools:context=".MarkerDetails">
 
+
+    <TextView
+        android:id="@+id/title_marker"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:background="#63DD1D1D"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="DEFAULT"
+        android:textColor="#B9ACACCF"
+        android:textColorHint="#B9ACACCF"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#63DD1D1D"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="DEFAULT"
+        android:textColor="#B9ACACCF"
+        android:textColorHint="#B9ACACCF"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_marker" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#63DD1D1D"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="DEFAULT"
+        android:textColor="#B9ACACCF"
+        android:textColorHint="#B9ACACCF"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date" />
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#63DD1D1D"
+        android:lines="4"
+        android:maxLines="4"
+        android:padding="10dp"
+        android:text="DEFAULT"
+        android:textColor="#B9ACACCF"
+        android:textColorHint="#B9ACACCF"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/participants" />
+
+    <TextView
+        android:id="@+id/participants"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#63DD1D1D"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="DEFAULT"
+        android:textColor="#B9ACACCF"
+        android:textColorHint="#B9ACACCF"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginBottom="36dp"
+        android:isScrollContainer="false"
+        android:shadowColor="#00FFFFFF"
+        android:text="back"
+        android:textColor="#B9ACACCF"
+        android:textColorHint="#B9ACACCF"
+        app:backgroundTint="#00000000"
+        app:icon="@drawable/abc_vector_test"
+        app:iconTint="#B9ACACCF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.025" />
+
+    <Button
+        android:id="@+id/join"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="join"
+        android:textColor="#B9ACACCF"
+        android:textColorHint="#B9ACACCF"
+        android:textSize="24sp"
+        app:backgroundTint="#00DD1D1D"
+        app:icon="@android:drawable/ic_input_add"
+        app:iconTint="#B9ACACCF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.944"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/info"
+        app:layout_constraintVertical_bias="0.208" />
+
+    <TextView
+        android:id="@+id/extraText"
+        android:layout_width="153dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginBottom="41dp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/title_marker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.288"
+        app:layout_constraintStart_toEndOf="@+id/back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

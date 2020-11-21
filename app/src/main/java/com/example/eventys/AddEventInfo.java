@@ -89,7 +89,7 @@ public class AddEventInfo extends AppCompatActivity {
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
                 String date = i2 + "/" + (i1+1) + "/" +i;
                 mydate.setText(date);
-                DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                /*DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
                 Date date1 = null;
                 try {
                     date1 = (Date)formatter.parse(date);
@@ -98,8 +98,8 @@ public class AddEventInfo extends AppCompatActivity {
                 }
                 Log.d(TAG, "Selected date is => "+date1.getTime());
 
-                long datelong = date1.getTime()/1000;
-                datestring=Long.toString(datelong);
+                long datelong = date1.getTime()/1000;*/
+                datestring=date;
             }
         });
         eventIcon.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -202,7 +202,8 @@ public class AddEventInfo extends AppCompatActivity {
                         xlong,
                         ylat,
                         userID,
-                        icon
+                        icon,
+                        ""
                 );
                 dbEvents.add(event).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override

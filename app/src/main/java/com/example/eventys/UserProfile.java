@@ -21,8 +21,8 @@ public class UserProfile extends AppCompatActivity {
     public static final String TAG="TAG";
     TextView fullName,userEmail,logout;
     FirebaseFirestore fStore;
-FirebaseAuth fAuth;
-String userID;
+    FirebaseAuth fAuth;
+    String userID;
 
 @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,7 @@ String userID;
     logout = (TextView) findViewById(R.id.logout);
 
     userID = fAuth.getCurrentUser().getUid();
+
     DocumentReference docRef = fStore.collection("users").document(userID);
     docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
         @Override
@@ -44,9 +45,7 @@ String userID;
             if (task.isSuccessful()) {
                 DocumentSnapshot document = task.getResult();
                 String name = document.getString("fName");
-                String email = document.getString("email");
-                fullName.setText(name);
-                userEmail.setText(email);
+                fullName.setText("Welcome, "+name+ " !");
             } else {
                 Log.d(TAG, "get failed with", task.getException());
             }

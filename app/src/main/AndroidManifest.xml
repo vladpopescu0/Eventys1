@@ -18,6 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Eventys">
         <activity android:name=".MarkerDetails"></activity>
+        <activity android:name=".UserProfile"></activity>
         <activity android:name=".AddEventInfo" />
         <activity android:name=".AddEvent" />
         <activity android:name=".Login" />

@@ -52,16 +52,20 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.auth.User;
 
 import java.sql.Time;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
     public static final String TAG = "TAG";
     private GoogleMap mMap;
-    Button addEventBtn,eventInfo,profile;
+    Button addEventBtn,eventInfo,profile,refreshBtn;
     FirebaseFirestore fStore;
     FirebaseAuth fAuth;
+    double xCurrent,yCurrent;
     private int ACCESS_LOCATION_REQUEST_CODE = 10001;
+    long timestampevent;
 
     String userID;
 
@@ -83,6 +87,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         addEventBtn=(Button) findViewById(R.id.createEvent);
         eventInfo=(Button)findViewById(R.id.info);
         profile=(Button)findViewById(R.id.profile);
+        refreshBtn=(Button)findViewById(R.id.refresh);
 
         addEventBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,10 +102,29 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 startActivity(i);
             }
         });
+        refreshBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                overridePendingTransition(0, 0);
+                startActivity(getIntent());
+                overridePendingTransition(0, 0);
+            }
+        });
     }
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+            enableUserLocation();
+            zoomToUserLocation();
+        }else{
+            if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, ACCESS_LOCATION_REQUEST_CODE);
+            }else{
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, ACCESS_LOCATION_REQUEST_CODE);
+            }
+        }
         fStore.collection("events")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -110,50 +134,70 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
                                 Event event = document.toObject(Event.class);
-                                LatLng sydney = new LatLng(event.ylat,event.xlong);
-                                if(event.icon.equals("Sport")){
-                                    mMap.addMarker(new MarkerOptions()
-                                            .position(sydney)
-                                            .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(),R.drawable.ic_baseline_sports_basketball_24)));
+                                LatLng sydney = new LatLng(event.ylat, event.xlong);
+                                double yEvent = event.ylat;
+                                double xEvent = event.xlong;
+                                try {
+                                    long epoch = new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm").parse(event.date + " " + event.time).getTime() / 1000;
+                                    timestampevent = epoch;
+                                    Log.d(TAG, "epoch = >" + epoch);
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
                                 }
-                                if(event.icon.equals("Movie")){
-                                    mMap.addMarker(new MarkerOptions()
-                                            .position(sydney)
-                                            .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(),R.drawable.ic_baseline_local_movies_24)));
-                                }if(event.icon.equals("Party")){
-                                    mMap.addMarker(new MarkerOptions()
-                                            .position(sydney)
-                                            .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(),R.drawable.ic_baseline_emoji_people_24)));
-                                }if(event.icon.equals("Picnic")){
-                                    mMap.addMarker(new MarkerOptions()
-                                            .position(sydney)
-                                            .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(),R.drawable.ic_baseline_shopping_basket_24)));
-                                }if(event.icon.equals("Food")){
-                                    mMap.addMarker(new MarkerOptions()
-                                            .position(sydney)
-                                            .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(),R.drawable.ic_baseline_fastfood_24)));
-                                }if(event.icon.equals("Contest")){
-                                    mMap.addMarker(new MarkerOptions()
-                                            .position(sydney)
-                                            .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(),R.drawable.ic_baseline_create_24)));
-                                }if(event.icon.equals("Fair")){
-                                    mMap.addMarker(new MarkerOptions()
-                                            .position(sydney)
-                                            .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(),R.drawable.ic_baseline_home_work_24)));
+                                long timeStamp = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis());
+                                Log.d(TAG,"timestamp acuma + timestamp event => "+timeStamp+" "+timestampevent);
+                                if (timestampevent >= timeStamp) {
+                                    if ((yEvent - yCurrent) * (yEvent - yCurrent) + (xEvent - xCurrent) * (xEvent - xCurrent) < 0.12) {
+                                        if (event.icon.equals("Sport")) {
+                                            mMap.addMarker(new MarkerOptions()
+                                                    .position(sydney)
+                                                    .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_sports_basketball_24)));
+                                        }
+                                        if (event.icon.equals("Movie")) {
+                                            mMap.addMarker(new MarkerOptions()
+                                                    .position(sydney)
+                                                    .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_local_movies_24)));
+                                        }
+                                        if (event.icon.equals("Party")) {
+                                            mMap.addMarker(new MarkerOptions()
+                                                    .position(sydney)
+                                                    .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_emoji_people_24)));
+                                        }
+                                        if (event.icon.equals("Picnic")) {
+                                            mMap.addMarker(new MarkerOptions()
+                                                    .position(sydney)
+                                                    .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_shopping_basket_24)));
+                                        }
+                                        if (event.icon.equals("Food")) {
+                                            mMap.addMarker(new MarkerOptions()
+                                                    .position(sydney)
+                                                    .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_fastfood_24)));
+                                        }
+                                        if (event.icon.equals("Contest")) {
+                                            mMap.addMarker(new MarkerOptions()
+                                                    .position(sydney)
+                                                    .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_create_24)));
+                                        }
+                                        if (event.icon.equals("Fair")) {
+                                            mMap.addMarker(new MarkerOptions()
+                                                    .position(sydney)
+                                                    .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_home_work_24)));
+                                        }
+                                        if (event.icon.equals("Others")) {
+                                            mMap.addMarker(new MarkerOptions()
+                                                    .position(sydney)
+                                                    .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_dynamic_feed_24)));
+                                        }
+                                        if (event.icon.equals("Circus")) {
+                                            mMap.addMarker(new MarkerOptions()
+                                                    .position(sydney)
+                                                    .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_sports_kabaddi_24)));
+                                        }
+                                    }
                                 }
-                                if(event.icon.equals("Others")){
-                                    mMap.addMarker(new MarkerOptions()
-                                            .position(sydney)
-                                            .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(),R.drawable.ic_baseline_dynamic_feed_24)));
+                                    //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+                                    Log.d(TAG, "Test213 => " + event.date);
                                 }
-                                if(event.icon.equals("Circus")){
-                                    mMap.addMarker(new MarkerOptions()
-                                            .position(sydney)
-                                            .title(event.name1).icon(bitmapDescriptorFromVector(getApplicationContext(),R.drawable.ic_baseline_sports_kabaddi_24)));
-                                }
-                                //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-                                Log.d(TAG,  "Test213 => " + event.date);
-                            }
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
                         }
@@ -235,7 +279,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 //        });
 
 
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+/*        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
             enableUserLocation();
             zoomToUserLocation();
         }else{
@@ -244,7 +288,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             }else{
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, ACCESS_LOCATION_REQUEST_CODE);
             }
-        }
+        }*/
     }
 
     private void enableUserLocation(){
@@ -257,6 +301,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onSuccess(Location location) {
                 if(locationTask.isSuccessful() && locationTask.getResult()!=null) {
                     LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                    xCurrent =location.getLongitude();
+                    yCurrent =location.getLatitude();
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 60));
                 }
             }

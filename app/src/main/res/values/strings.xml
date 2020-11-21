@@ -1,9 +1,8 @@
 <resources>
     <string name="app_name">Eventys</string>
     <string name="title_activity_maps">Map</string>
-    <string-array name="icons"
-        >
-        <item >Sport </item>
+    <string-array name="icons">
+        <item>Sport </item>
         <item>Party/Concert</item>
         <item>Movie</item>
         <item>Picnic</item>

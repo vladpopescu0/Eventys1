@@ -33,24 +33,20 @@
                 android:id="@+id/userEmail"
                 android:text="TextView"
                 android:textSize="30sp"/>
+
             <Button
+                android:id="@+id/calendar_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/calendar_button"
                 android:layout_marginTop="20dp"
-                android:text="Upcoming Events"/>
+                android:text="Upcoming Events Near You" />
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/dashboard"
                 android:text="Dashboard"
                 android:layout_marginTop="20dp"/>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/history"
-                android:text="History"
-                android:layout_marginTop="20dp"/>
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

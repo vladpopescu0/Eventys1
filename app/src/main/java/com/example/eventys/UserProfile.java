@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,6 +23,7 @@ public class UserProfile extends AppCompatActivity {
     TextView fullName,userEmail,logout;
     FirebaseFirestore fStore;
     FirebaseAuth fAuth;
+    Button dashboardBtn;
     String userID;
 
 @Override
@@ -34,6 +36,7 @@ public class UserProfile extends AppCompatActivity {
     fStore = FirebaseFirestore.getInstance();
     fAuth = FirebaseAuth.getInstance();
     logout = (TextView) findViewById(R.id.logout);
+    dashboardBtn=findViewById(R.id.dashboard);
 
     userID = fAuth.getCurrentUser().getUid();
 
@@ -59,6 +62,13 @@ public class UserProfile extends AppCompatActivity {
             finish();
         }
     });
+    dashboardBtn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            startActivity(new Intent(getApplicationContext(),Dashboard.class));
+        }
+    });
+
 
 }
 }

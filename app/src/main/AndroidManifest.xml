@@ -17,8 +17,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Eventys">
-        <activity android:name=".MarkerDetails"></activity>
-        <activity android:name=".UserProfile"></activity>
+        <activity android:name=".DashboardEvents"></activity>
+        <activity android:name=".Dashboard" />
+        <activity android:name=".MarkerDetails" />
+        <activity android:name=".UserProfile" />
         <activity android:name=".AddEventInfo" />
         <activity android:name=".AddEvent" />
         <activity android:name=".Login" />

@@ -129,13 +129,13 @@ public class MarkerDetails extends AppCompatActivity {
                 String events = document.getString("allParticipants");
                 String creator = document.getString("creator");
                 if(creator.equals(userID)){
-                    eJoin.setVisibility(View.GONE);
+                    eJoin.setVisibility(View.INVISIBLE);
                     extra.setText("You are the creator of the event");
                 }
                 Log.d(TAG,"acesta este event.getstring =>"+events);
                 int isExists = events.indexOf(userID);
                 if(isExists!=-1){
-                    eJoin.setVisibility(View.GONE);
+                    eJoin.setVisibility(View.INVISIBLE);
                     extra.setText("You have already joined the event");
                 }
             }

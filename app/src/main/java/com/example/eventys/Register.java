@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -35,7 +36,9 @@ public class Register extends AppCompatActivity {
     FirebaseAuth fAuth;
     ProgressBar progressBar;
     FirebaseFirestore fStore;
+    ToggleButton type;
     String userID;
+    String userType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,7 @@ public class Register extends AppCompatActivity {
         mFullName = findViewById(R.id.fullName);
         mEmail = findViewById(R.id.email);
         mPassword = findViewById(R.id.password);
+        type=findViewById(R.id.type);
         mRegisterBtn = findViewById(R.id.register);
         mLoginBtn = findViewById(R.id.alreadyregistered);
 
@@ -57,7 +61,18 @@ public class Register extends AppCompatActivity {
             finish();
         }
 
-
+        type.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(type.isChecked()){
+                    userType="eventCreator";
+                    type.setBackgroundColor(0xff0000ff);
+                }else{
+                    userType="eventJoiner";
+                    type.setBackgroundColor(0xffffff00);
+                }
+            }
+        });
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,7 +109,8 @@ public class Register extends AppCompatActivity {
                                        fullName,
                                        email,
                                        userID,
-                                       ""
+                                       "",
+                                       userType
                                );
                                documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                    @Override

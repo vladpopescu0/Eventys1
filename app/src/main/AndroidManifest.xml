@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
@@ -17,7 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Eventys">
-        <activity android:name=".DashboardEvents"></activity>
+        <activity android:name=".Scanner"></activity>
+        <activity android:name=".QrCodeGenerator" />
+        <activity android:name=".DashboardEvents" />
         <activity android:name=".Dashboard" />
         <activity android:name=".MarkerDetails" />
         <activity android:name=".UserProfile" />

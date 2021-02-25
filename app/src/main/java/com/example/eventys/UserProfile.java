@@ -23,7 +23,7 @@ public class UserProfile extends AppCompatActivity {
     TextView fullName,logout;
     FirebaseFirestore fStore;
     FirebaseAuth fAuth;
-    Button dashboardBtn,goToMap;
+    Button dashboardBtn,goToMap,goToQr;
     String userID;
 
 @Override
@@ -32,6 +32,7 @@ public class UserProfile extends AppCompatActivity {
     setContentView(R.layout.activity_user_profile);
 
     fullName = (TextView) findViewById(R.id.fullName);
+    goToQr = findViewById(R.id.qrcode);
     fStore = FirebaseFirestore.getInstance();
     fAuth = FirebaseAuth.getInstance();
     goToMap=findViewById(R.id.button);
@@ -51,7 +52,15 @@ public class UserProfile extends AppCompatActivity {
                 fullName.setText("Welcome, "+name+ " !");
             } else {
                 Log.d(TAG, "get failed with", task.getException());
+                fullName.setText("Welcome !");
             }
+        }
+    });
+    goToQr.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            startActivity(new Intent(getApplicationContext(),QrCodeGenerator.class));
+            //finish();
         }
     });
     logout.setOnClickListener(new View.OnClickListener() {

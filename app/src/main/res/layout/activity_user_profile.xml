@@ -42,21 +42,21 @@
                 app:backgroundTint="#668299" />
 
             <Button
-                android:id="@+id/help"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/baloo"
-                android:text="Help"
-                app:backgroundTint="#668299" />
-
-            <Button
-                android:id="@+id/settings"
+                android:id="@+id/profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/baloo"
                 android:text="Profile"
+                app:backgroundTint="#668299" />
+
+            <Button
+                android:id="@+id/qrcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/baloo"
+                android:text="My Own Qrcode"
                 app:backgroundTint="#668299" />
             <TextView
                 android:layout_width="match_parent"
@@ -77,7 +77,7 @@
                 android:id="@+id/button"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginStart="310dp"
+                android:layout_marginStart="325dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="15dp"
                 android:background="@drawable/ic_header_eventys"

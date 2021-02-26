@@ -38,6 +38,19 @@
                 android:fontFamily="@font/baloo"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="300dp"
+                android:background="#668299"
+                android:textColor="#B937374E"
+                android:padding="6dp"
+                android:fontFamily="@font/baloo"
+                android:text="Back"
+                android:textSize="18dp"
+                app:backgroundTint="#668299" />
+
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
@@ -121,13 +134,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:background="#000000"
-                android:text="DONE"
+                android:background="#916868"
                 android:fontFamily="@font/baloo"
+                android:text="Scan QR"
                 android:textAllCaps="false"
-                android:textColor="#B99595EC"
+                android:textColor="#B937374E"
                 android:textSize="30sp"
-                app:backgroundTint="#6625E6FF" />
+                app:backgroundTint="#1ADFF8" />
 
         </LinearLayout>
     </ScrollView>

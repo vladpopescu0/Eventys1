@@ -42,7 +42,7 @@ public class QrCodeGenerator extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),Scanner.class));
+                startActivity(new Intent(getApplicationContext(),UserProfile.class));
                 finish();
             }
         });

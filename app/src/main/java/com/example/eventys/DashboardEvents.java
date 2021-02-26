@@ -14,7 +14,7 @@ public class DashboardEvents extends AppCompatActivity {
 
     TextView mTitle,mDate,mDescription,mParticipants,mIcon,mTime;
     String time,icon,date,eventInfo,eventTitle,participants,eID;
-    Button done;
+    Button scanQR;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +24,7 @@ public class DashboardEvents extends AppCompatActivity {
         mParticipants=findViewById(R.id.nrParticipants);
         mTime=findViewById(R.id.time);
         mIcon=findViewById(R.id.type);
-        done=findViewById(R.id.done);
+        scanQR=findViewById(R.id.done);
         mDescription=findViewById(R.id.description);
         time = getIntent().getStringExtra("TIME");
         icon = getIntent().getStringExtra("ICON");
@@ -75,10 +75,11 @@ public class DashboardEvents extends AppCompatActivity {
         mParticipants.setText("There will be a maximum of "+participants+" participants.");
         mIcon.setText("Event type: "+icon);
 
-        done.setOnClickListener(new View.OnClickListener() {
+        scanQR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent x = new Intent(DashboardEvents.this, UserProfile.class);
+                Intent x = new Intent(DashboardEvents.this, Scanner.class);
+                x.putExtra("EVENTID",eID);
                 startActivity(x);
             }
         });

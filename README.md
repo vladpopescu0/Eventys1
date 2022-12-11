@@ -1,4 +1,4 @@
-# Eventys1
+# Eventys
 Find events nearby or create one by yourself 🗺🌆
 Video of the (first) app demo:
 https://youtu.be/WBizHfVFeQ4

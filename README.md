@@ -7,3 +7,5 @@ Or the version in Romanian:
 https://youtu.be/TeOwVp2PIxw
 
 The videos do not cover the latest update in which a QR Code can be scanned to check whether the user has registered in the event.
+
+https://sites.google.com/view/eventys/pagina-de-pornire

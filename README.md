@@ -13,4 +13,4 @@ https://sites.google.com/view/eventys/pagina-de-pornire
 
 The app was started without prior Java knowledge. Everything was learned during the process of creation, through Youtube videos and documentation. 
 
-The code, however, defies every written and unwritten law of styling. For those wondering, the max cyclomatic complexity is 25.
+The code, however, defies every written and unwritten law of styling. For those wondering, the max cyclomatic complexity is 25 and Checkstyle (with the given OOP format) displays no less than 300 warnings.

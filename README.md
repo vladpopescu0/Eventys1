@@ -11,6 +11,6 @@ The videos do not cover the latest update in which a QR Code can be scanned to c
 
 https://sites.google.com/view/eventys/pagina-de-pornire
 
-The app was started without prior Java knowledge. Everything was learned during the process of creation, a mobile app being built. 
+The app was started without prior Java knowledge. Everything was learned during the process of creation, through Youtube videos and documentation. 
 
 The code, however, defies every written and unwritten law of styling. For those wondering, the max cyclomatic complexity is 25.
